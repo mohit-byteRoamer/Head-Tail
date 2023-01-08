@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./index.css";
 
-let Home = function () {
+let Home = function () {    
   return (
     <div>
       <div className="pageHeader">Home</div>

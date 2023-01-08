@@ -47,13 +47,12 @@ let Head_Tail = function () {
   return (
     <div className="headTail">
       <div className="pageHeader">Head & Tail</div>
-      {value}
       <div className="dragDown">
         <label className="label">Select Options</label>
         <div style={{ display: "flex" }}>
           <select value={value} onChange={getVaule} className="select">
-            <option value={"Head"}>Head</option>
-            <option value={"Tail"}>Tail</option>
+            <option value={"H"}>Head</option>
+            <option value={"T"}>Tail</option>
           </select>
           <div onClick={() => pushVaule(value)} className="button">
             Accept
