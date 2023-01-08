@@ -2,13 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 let Head_Tail = function () {
+  const options = ["Head", "Tail"];
   const [array, setArray] = React.useState([]);
   const [value, setValue] = React.useState("");
-  let getVaule = (e) => {
-    setValue(e.target.value);
+  const [message, setMessage] = React.useState(false);
+  const [option, setOption] = React.useState(false);
+  let showOption = () => {
+    setOption(option ? false : true);
+  };
+  let getVaule = function (value) {
+    setValue(value == "Head" ? "H" : "T");
   };
   let pushVaule = function (value) {
     if (!value) {
+      setMessage(true);
       return;
     }
     debugger;
@@ -44,21 +51,41 @@ let Head_Tail = function () {
       }
     }
   };
+  React.useEffect(() => {
+    setTimeout(() => {
+      setMessage(false);
+    }, 2000);
+  }, [message]);
   return (
     <div className="headTail">
       <div className="pageHeader">Head & Tail</div>
-      <div className="dragDown">
-        <label className="label">Select Options</label>
-        <div style={{ display: "flex" }}>
-          <select value={value} onChange={getVaule} className="select">
-            <option value={"H"}>Head</option>
-            <option value={"T"}>Tail</option>
-          </select>
-          <div onClick={() => pushVaule(value)} className="button">
-            Accept
+      <div style={{ color: "red" }}>
+        {message ? "Please select value from dropdown" : null}
+      </div>
+      <div className="controller">
+        <div className="selectionBox">
+          <div onClick={showOption} className="label">
+            Select Options
           </div>
+          {option
+            ? options.map((val, key) => {
+                return (
+                  <div
+                    onClick={() => getVaule(val)}
+                    className="options"
+                    key={key}
+                  >
+                    {val}
+                  </div>
+                );
+              })
+            : null}
+        </div>
+        <div onClick={() => pushVaule(value)} className="button">
+          Submit
         </div>
       </div>
+
       <div>
         {array.map((newArray, index) => {
           return (

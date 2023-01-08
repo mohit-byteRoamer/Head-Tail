@@ -12,12 +12,6 @@ let About = function () {
         This is my Portfolio {"=> "}
         {"https://mohit-kaushik.vercel.app/"}
       </div>
-      <p></p>
-      <div className="linkBox">
-        <Link className="link" to="/tail-head">
-          Head & Tail
-        </Link>
-      </div>
     </div>
   );
 };
