@@ -1,0 +1,15 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.paragraph {
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  padding: 8px;
+  margin: 6px;
+  width: 40%;
+}
